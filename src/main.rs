@@ -33,7 +33,7 @@ struct ProgramArguments {
     bitcoin_dir: Option<PathBuf>,
 }
 
-const SATS_AS_FEE: u64 = 400;
+const SATS_AS_FEE: u64 = 5000;
 
 fn main() {
     let args = ProgramArguments::from_args();
@@ -64,7 +64,7 @@ fn main() {
             }
         },
     };
-    cookie_path.push("testnet3");
+    cookie_path.push("");
 
     let attacker_address = args.attacker_address;
     let vuln_script_sig = args.vuln_script;
