@@ -92,10 +92,8 @@ fn main() {
     );
 
     let tx_to_steal_from = client
-        .get_transaction(&args.steal_txid, None)
-        .expect("Failed to get steal transaction info")
-        .transaction()
-        .expect("Failed to parse get_transaction RPC result");
+        .get_raw_transaction(&args.steal_txid, None)
+        .expect("Failed to get steal transaction info");
     let steal_vout_usize =
         usize::try_from(args.steal_vout).expect("Can't convert input steal-vout to usize");
     if tx_to_steal_from.output.len() <= steal_vout_usize {
